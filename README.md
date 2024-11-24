@@ -113,8 +113,12 @@ For this file type you can provide command-line arguments here, if required.
 Linux: -e ../my_cover_image.jpg "../my document file.pdf"
 
 ```
-Also, be aware when using arguments, you are always working from within the subdirectory "***pdvzip_extracted***".
-  
+Also, be aware when using arguments, you are always working from within the subdirectory "***pdvzip_extracted***".  
+
+(*You can try the [***pdvzip Web App***](https://cleasbycode.co.uk/pdvzip/index/) if you don't want to download and compile the source code.*)  
+
+https://github.com/user-attachments/assets/9125d4e5-f94b-4d27-987e-fb2d76a90e8f
+
 To just get access to the file(s) within the ***ZIP*** archive, rename the '***.png***' file extension to '***.zip***'.  
 Treat the ***ZIP*** archive as read-only, do not add or remove files from the ***PNG-ZIP*** polyglot file.  
 
@@ -168,15 +172,15 @@ Image dimensions can be set between a minimum of **68 x 68** and a maximum of **
         
 ***PNG Chunks:***  
 
-With ***X/Twitter***, for example, you can overfill the following ***PNG*** chunks with arbitrary data,  
+With ***X/Twitter***, for example, you can ***overfill*** the following ***PNG*** chunks with arbitrary data,  
 in which the platform will preserve as long as you keep within the image dimension & file size limits.  
 
 ***bKGD, cHRM, gAMA, hIST,***  
-***iCCP,*** (Limited chunk. Only **10KB** max. with ***X/Twitter***).  
+***iCCP,*** (Limited size chunk. Only **10KB** max. with ***X/Twitter***).  
 ***IDAT,*** (Use as last ***IDAT*** chunk, after the final image ***IDAT*** chunk).  
 ***PLTE,*** (Use only with ***PNG-32/24*** images).  
 ***pHYs, sBIT, sPLT, sRGB,***   
-***tRNS. (Not recommended, may distort image).***  
+***tRNS. (Use only with ***PNG-32/24*** images).***  
 
 *Other platforms may differ in what chunks they preserve and which ones you can overfill.*
   
