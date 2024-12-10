@@ -3,9 +3,9 @@
 Embed a ***ZIP*** or ***JAR*** file within a ***PNG*** image, to create a ***tweetable*** and "[***executable***](https://github.com/CleasbyCode/pdvzip#extracting-your-embedded-files)" ***PNG*** polyglot file.  
 Share the image on ***X/Twitter*** and a few other hosting sites, which will retain the embedded archive.  
 
-With ***pdvzip***, you can embed a ***ZIP*** file up to a maximum size of **2GB** (cover image + data file).
+With ***pdvzip***, you can embed a ***ZIP/JAR*** file up to a maximum size of **2GB** (cover image + archive file).
 
-Compatible hosting sites, ***listed below***, have their own ***much smaller*** size limits:-
+Compatible sites, ***listed below***, have their own ***much smaller*** size limits:-
 
 ***X/Twitter*** (**5MB**), ***Flickr*** (**200MB**), ***ImgBB*** (**32MB**), ***PostImage*** (**32MB**), ***ImgPile*** (**8MB**).
   
@@ -15,7 +15,9 @@ Compatible hosting sites, ***listed below***, have their own ***much smaller*** 
 Based on the similar idea by [***David Buchanan***](https://www.da.vidbuchanan.co.uk/), from his original ***Python*** program [***tweetable-polyglot-png***](https://github.com/DavidBuchanan314/tweetable-polyglot-png),  
 ***pdvzip*** uses different methods for [***storing***](https://github.com/CleasbyCode/pdvzip#png-image-requirements-for-arbitrary-data-preservation) and [***extracting***](https://github.com/CleasbyCode/pdvzip#extracting-your-embedded-files) embedded files within a ***PNG*** image.  
 
-The ***Linux/Windows*** extraction script is stored within the ***iCCP*** chunk of the ***PNG*** image. The embedded ***ZIP/JAR*** file is stored within the last ***IDAT*** chunk of the image.
+The ***Linux/Windows*** extraction script is stored within the ***iCCP*** chunk of the ***PNG*** image. The embedded ***ZIP/JAR*** file is stored within the last ***IDAT*** chunk of the image.  
+
+(*You can try the [***pdvzip Web App, here,***](https://cleasbycode.co.uk/pdvzip/index/) if you don't want to download and compile the CLI source code.*)  
 
 ## Usage (Linux)
 
@@ -114,8 +116,6 @@ Linux: -e ../my_cover_image.jpg "../my document file.pdf"
 ```
 Also, be aware when using arguments for the compressed ZIP file types (not JAR), you are always working from within the subdirectory "***pdvzip_extracted***".  
 
-(*You can try the [***pdvzip Web App***](https://cleasbycode.co.uk/pdvzip/index/) if you don't want to download and compile the source code.*)  
-
 https://github.com/user-attachments/assets/9125d4e5-f94b-4d27-987e-fb2d76a90e8f
 
 To just get access to the file(s) within the ***ZIP*** archive, rename the '***.png***' file extension to '***.zip***'.  
@@ -129,7 +129,7 @@ user1@linuxbox:~/Desktop$ java -jar pjar_19662.png
 Note: If you use this method to run your embedded JAR file, you will have to manually add command-line
       arguments (if required) to the end of the command, as your embedded arguments will not work with
       this method. e.g.
-      PS C:\Users\Nick\Desktop\jar_demo> java -jar .\pjar_19662.png -u myUsername -a 25 -f "John Doe"
+      user1@linuxbox:~/Desktop$ java -jar ./pjar_19662.png -u john_s -a 42 -f "John Smith"
 ```
 ***Linux Option 2a, using bash (or sh) shell environment:***
 ```console
@@ -147,7 +147,7 @@ PS C:\Users\Nick\Desktop\jar_demo> java -jar .\pjar_19662.png
 Note: If you use this method to run your embedded JAR file, you will have to manually add command-line
       arguments (if required) to the end of the command, as your embedded arguments will not work with
       this method. e.g.
-      PS C:\Users\Nick\Desktop\jar_demo> java -jar .\pjar_19662.png -u myUsername -a 25 -f "John Doe"
+      PS C:\Users\Nick\Desktop\jar_demo> java -jar .\pjar_19662.png -u john_s -a 42 -f "John Smith"
 ```
 ***Windows Option 2:***
 ```console
@@ -205,18 +205,19 @@ To work out the maximum ***ZIP/JAR*** file size, start with the size limit, minu
 ***X/Twitter*** example: (**5MB** limit) **5,242,880** - (**307,200** [image] + **1500** [extraction script]) = **4,934,180 bytes** available for your ***ZIP/JAR*** file.  
 
 * Make sure your ***ZIP/JAR*** file is a standard ***ZIP/JAR*** archive, compatible with ***Linux*** unzip & ***Windows*** Explorer.
-* Do not include other ***.zip*** files within the main ***ZIP*** archive. (***.rar*** files are ok).
+* Do not include more than one ***.zip*** file within the main ***ZIP*** archive. (***.rar*** files are ok).
 * Do not include other ***pdvzip*** created ***PNG*** image files within the main ***ZIP*** archive, as they are essentially ***.zip*** files.
 * Use file extensions for your file(s) within the ***ZIP*** archive: ***my_doc.pdf***, ***my_video.mp4***, ****my_program.py****, etc.
   
   A file without an extension within a ***ZIP*** archive will be considered a ***Linux*** executable.      
 * ***Paint.net*** application is recommended for easily creating compatible ***PNG*** image files.  
 
-My other programs you may find useful:-
+## Third-Party Libraries
 
-* [jdvrif: CLI tool to encrypt & embed any file type within a JPG image.](https://github.com/CleasbyCode/jdvrif)
-* [imgprmt: CLI tool to embed an image prompt (e.g. "Midjourney") within a tweetable JPG-HTML polyglot image.](https://github.com/CleasbyCode/imgprmt)
-* [pdvrdt: CLI tool to encrypt, compress & embed any file type within a PNG image.](https://github.com/CleasbyCode/pdvrdt)
-* [pdvps: PowerShell / C++ CLI tool to encrypt & embed any file type within a tweetable & "executable" PNG image](https://github.com/CleasbyCode/pdvps)  
+This project includes the following third-party library:
+
+- **LodePNG** by Lode Vandevenne
+  - License: zlib/libpng (see [***LICENSE***](https://github.com/lvandeve/lodepng/blob/master/LICENSE) file)
+  - Copyright (c) 2005-2024 Lode Vandevenne
 
 ##
