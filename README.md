@@ -1,6 +1,6 @@
 # pdvzip  
 
-Embed a ***ZIP*** or ***JAR*** file within a ***PNG*** image, to create a ***tweetable*** and "[***executable***](https://github.com/CleasbyCode/pdvzip#extracting-your-embedded-files)" ***PNG*** polyglot file.  
+Embed a ***ZIP*** or ***JAR*** file within a ***PNG*** image, to create a ***tweetable*** and "[***executable***](https://github.com/CleasbyCode/pdvzip-1#extracting-your-embedded-files)" ***PNG*** polyglot file.  
 Share the image on ***X/Twitter*** and a few other hosting sites, which will retain the embedded archive.  
 
 With ***pdvzip***, you can embed a ***ZIP/JAR*** file up to a maximum size of **2GB** (cover image + archive file).
@@ -9,11 +9,11 @@ Compatible sites, ***listed below***, have their own ***much smaller*** size lim
 
 ***X/Twitter*** (**5MB**), ***Flickr*** (**200MB**), ***ImgBB*** (**32MB**), ***PostImage*** (**32MB**), ***ImgPile*** (**8MB**).
   
-![Demo Image](https://github.com/CleasbyCode/pdvzip/blob/main/demo_image/pzip_83973.png)  
+![Demo Image](https://github.com/CleasbyCode/pdvzip-1/blob/main/demo_image/pzip_83973.png)  
 ***Image credit:*** [***@obeca***](https://x.com/obeca)
  
 Based on the similar idea by [***David Buchanan***](https://www.da.vidbuchanan.co.uk/), from his original ***Python*** program [***tweetable-polyglot-png***](https://github.com/DavidBuchanan314/tweetable-polyglot-png),  
-***pdvzip*** uses different methods for [***storing***](https://github.com/CleasbyCode/pdvzip#png-image-requirements-for-arbitrary-data-preservation) and [***extracting***](https://github.com/CleasbyCode/pdvzip#extracting-your-embedded-files) embedded files within a ***PNG*** image.  
+***pdvzip*** uses different methods for [***storing***](https://github.com/CleasbyCode/pdvzip-1#png-image-requirements-for-arbitrary-data-preservation) and [***extracting***](https://github.com/CleasbyCode/pdvzip-1#extracting-your-embedded-files) embedded files within a ***PNG*** image.  
 
 The ***Linux/Windows*** extraction script is stored within the ***iCCP*** chunk of the ***PNG*** image. The embedded ***ZIP/JAR*** file is stored within the last ***IDAT*** chunk of the image.  
 
