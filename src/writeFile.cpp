@@ -1,7 +1,7 @@
-bool writeFile(std::vector<uint8_t>& Vec, const uint32_t FILE_SIZE, bool isZipFile) {
+bool writeFile(std::vector<uint8_t>& vec, const uint32_t FILE_SIZE, bool isZipFile) {
 	std::random_device rd;
     	std::mt19937 gen(rd());
-    	std::uniform_int_distribution<> dist(10000, 99999);  // Five-digit random number
+    	std::uniform_int_distribution<> dist(10000, 99999);  
 
 	const std::string
 		PREFIX = isZipFile ? "pzip_" : "pjar_",
@@ -14,17 +14,16 @@ bool writeFile(std::vector<uint8_t>& Vec, const uint32_t FILE_SIZE, bool isZipFi
 		return false;
 	}
 	
-	file_ofs.write(reinterpret_cast<const char*>(Vec.data()), FILE_SIZE);
+	file_ofs.write(reinterpret_cast<const char*>(vec.data()), FILE_SIZE);
 	
-	std::vector<uint8_t>().swap(Vec);
+	std::vector<uint8_t>().swap(vec);
 
 	std::cout << "\nCreated " 
 		<< (isZipFile 
 			? "PNG-ZIP" 
 			: "PNG-JAR") 
 		<< " polyglot image file: " << POLYGLOT_FILENAME << " (" << FILE_SIZE << " bytes).\n\nComplete!\n\n";
-
-	// Attempt to set executable permissions for the newly created polyglot image file.
+	
 	#ifdef __unix__
 	    if (chmod(POLYGLOT_FILENAME.c_str(), S_IRUSR | S_IWUSR | S_IXUSR | S_IRGRP | S_IXGRP | S_IROTH | S_IXOTH) != 0) {
         	std::cerr << "\nWarning: Could not set executable permissions for " << POLYGLOT_FILENAME << ".\nYou will need do this manually using chmod.\n" << std::endl;
