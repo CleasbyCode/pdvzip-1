@@ -1,19 +1,19 @@
 # pdvzip  
 
-Embed a ***ZIP*** or ***JAR*** file within a ***PNG*** image, to create a ***tweetable*** and "[***executable***](https://github.com/CleasbyCode/pdvzip-1#extracting-your-embedded-files)" ***PNG*** polyglot file.  
+Embed a ***ZIP*** or ***JAR*** file within a ***PNG*** image, to create a ***tweetable*** and "[***executable***](https://github.com/CleasbyCode/pdvzip#extracting-your-embedded-files)" ***PNG*** polyglot file.  
 Share the image on ***X/Twitter*** and a few other hosting sites, which will retain the embedded archive.  
 
-With ***pdvzip***, you can embed a ***ZIP/JAR*** file up to a maximum size of **2GB** (cover image + archive file).
+With ***pdvzip***, you can embed a ***ZIP/JAR*** file up to a maximum size of ***2GB** (cover image + archive file).
 
-Compatible sites, ***listed below***, have their own ***much smaller*** size limits:-
+*Compatible sites, ***listed below***, have their own ***much smaller*** size limits:-
 
 ***X/Twitter*** (**5MB**), ***Flickr*** (**200MB**), ***ImgBB*** (**32MB**), ***PostImage*** (**32MB**), ***ImgPile*** (**8MB**).
   
-![Demo Image](https://github.com/CleasbyCode/pdvzip-1/blob/main/demo_image/pzip_83973.png)  
+![Demo Image](https://github.com/CleasbyCode/pdvzip/blob/main/demo_image/pzip_24334.png)  
 ***Image credit:*** [***@obeca***](https://x.com/obeca)
  
 Based on the similar idea by [***David Buchanan***](https://www.da.vidbuchanan.co.uk/), from his original ***Python*** program [***tweetable-polyglot-png***](https://github.com/DavidBuchanan314/tweetable-polyglot-png),  
-***pdvzip*** uses different methods for [***storing***](https://github.com/CleasbyCode/pdvzip-1#png-image-requirements-for-arbitrary-data-preservation) and [***extracting***](https://github.com/CleasbyCode/pdvzip-1#extracting-your-embedded-files) embedded files within a ***PNG*** image.  
+***pdvzip*** uses different methods for [***storing***](https://github.com/CleasbyCode/pdvzip#png-image-requirements-for-arbitrary-data-preservation) and [***extracting***](https://github.com/CleasbyCode/pdvzip#extracting-your-embedded-files) embedded files within a ***PNG*** image.  
 
 The ***Linux/Windows*** extraction script is stored within the ***iCCP*** chunk of the ***PNG*** image. The embedded ***ZIP/JAR*** file is stored within the last ***IDAT*** chunk of the image.  
 
@@ -52,7 +52,7 @@ The following section covers the extraction of embedded ***ZIP*** files. ***JAR*
 
 You will need to manually set executable permissions using ***chmod*** on these polyglot images downloaded from hosting sites.
 
-https://github.com/user-attachments/assets/d4d28f3b-0583-4a63-bc95-e905b6386411
+https://github.com/user-attachments/assets/b775f8b8-059f-4460-89fa-d3692a245a53
 
 ***Linux - using bash (or sh) shell environment.***
 ```console
@@ -94,6 +94,8 @@ Clear this by clicking '***More info***' then select '***Run anyway***'.
 
 To avoid security warnings, run the file from a ***Windows console***, as shown in the above example.  
 
+***The file (or folder) within the ZIP archive that appears first within the ZIP file record, determines what extraction script, based on file type, is used.***
+
 For common ***video & audio*** files, ***Linux*** will use the ***vlc*** or ***mpv*** media player. ***Windows*** uses the default media player.  
 
 ***PDF*** - ***Linux*** will use ***evince*** or ***firefox***. ***Windows*** uses the default ***PDF*** viewer.  
@@ -121,12 +123,12 @@ https://github.com/user-attachments/assets/9125d4e5-f94b-4d27-987e-fb2d76a90e8f
 To just get access to the file(s) within the ***ZIP*** archive, rename the '***.png***' file extension to '***.zip***'.  
 Treat the ***ZIP*** archive as read-only, do not add or remove files from the ***PNG-ZIP*** polyglot file.  
 
-## Executing Embedded JAR Files  
+## Executing Embedded Java Programs
 
 ***Linux Option 1:***
 ```console
 user1@linuxbox:~/Desktop$ java -jar pjar_19662.png
-Note: If you use this method to run your embedded JAR file, you will have to manually add command-line
+Note: If you use this method to run your embedded Java program, you will have to manually add command-line
       arguments (if required) to the end of the command, as your embedded arguments will not work with
       this method. e.g.
       user1@linuxbox:~/Desktop$ java -jar ./pjar_19662.png -u john_s -a 42 -f "John Smith"
@@ -134,8 +136,8 @@ Note: If you use this method to run your embedded JAR file, you will have to man
 ***Linux Option 2a, using bash (or sh) shell environment:***
 ```console
 user1@linuxbox:~/Desktop$ ./pjar_19662.png
-Note: This method will execute the embedded JAR file and also use any embedded
-      command-line arguments with the JAR program.
+Note: This method will execute the embedded Java program and also use any embedded
+      command-line arguments with the Java program.
 ```
 ***Linux Option 2b, using any other shell environment, you will need to invoke bash (or sh) to execute the image:***
 ```console
@@ -144,7 +146,7 @@ linuxbox% bash ./pjar_19662.png
 ***Windows Option 1:***
 ```console
 PS C:\Users\Nick\Desktop\jar_demo> java -jar .\pjar_19662.png 
-Note: If you use this method to run your embedded JAR file, you will have to manually add command-line
+Note: If you use this method to run your embedded Java program, you will have to manually add command-line
       arguments (if required) to the end of the command, as your embedded arguments will not work with
       this method. e.g.
       PS C:\Users\Nick\Desktop\jar_demo> java -jar .\pjar_19662.png -u john_s -a 42 -f "John Smith"
@@ -153,8 +155,8 @@ Note: If you use this method to run your embedded JAR file, you will have to man
 ```console
 PS C:\Users\Nick\Desktop\jar_demo> ren .\pjar_19662.png .\pjar_19662.cmd
 PS C:\Users\Nick\Desktop\jar_demo> .\pjar_19662.cmd
-Note: This method will execute the embedded JAR file and also use any
-      embedded command-line arguments with the JAR program.
+Note: This method will execute the embedded Java program and also use any
+      embedded command-line arguments with the Java program.
 ```
 https://github.com/user-attachments/assets/9451ad50-4c7c-4fa3-a1be-3854189bde00
 
@@ -170,7 +172,7 @@ These dimension size limits are for compatibility reasons, allowing it to work w
 
 ***PNG-32/24 (Truecolor)***
 
-Image dimensions can be set between a minimum of **68 x 68** and a maximum of **899 x 899**.
+Image dimensions can be set between a minimum of **68 x 68** and a maximum of **900 x 900**.
 
 *Note: Images that are created & saved within your image editor as ***PNG-32/24*** that are either
 black & white/grayscale, images with 256 colors or less, will be converted by ***X/Twitter*** to
