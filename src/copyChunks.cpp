@@ -1,4 +1,3 @@
-
 #include "copyChunks.h"
 #include "searchFunc.h"
 #include "getByteValue.h"     
@@ -15,18 +14,18 @@ void copyEssentialChunks(std::vector<uint8_t>& image_vec) {
 		IDAT_SIG {0x49, 0x44, 0x41, 0x54};
 
     	constexpr uint8_t
-		PNG_FIRST_BYTES = 33,
-		PNG_IEND_BYTES = 12,
-		PNG_COLOR_TYPE_INDEX = 0x19,
-		PNG_TRUECOLOR_VAL = 2,
-		PNG_INDEXED_COLOR_VAL = 3;
+		PNG_FIRST_BYTES 	= 33,
+		PNG_IEND_BYTES 		= 12,
+		PNG_COLOR_TYPE_INDEX 	= 0x19,
+		PNG_TRUECOLOR_VAL 	= 2,
+		PNG_INDEXED_COLOR_VAL 	= 3;
 		
-    	const size_t IMAGE_VEC_SIZE = image_vec.size();
-    	
-    	const uint32_t FIRST_IDAT_INDEX = searchFunc(image_vec, 0, 0, IDAT_SIG);
+    	const uint32_t 
+    		IMAGE_VEC_SIZE = static_cast<uint32_t>(image_vec.size()),
+    		FIRST_IDAT_INDEX = searchFunc(image_vec, 0, 0, IDAT_SIG);
     	
     	if (FIRST_IDAT_INDEX == IMAGE_VEC_SIZE) {
-    		throw std::runtime_error("Image Error: Invalid or corrupt image file. IDAT chunk not found.");
+    		throw std::runtime_error("Image Error: Invalid or corrupt image file. Expected IDAT chunk not found!");
     	}
     	
     	std::vector<uint8_t> copied_image_vec;
@@ -36,24 +35,24 @@ void copyEssentialChunks(std::vector<uint8_t>& image_vec) {
 
     	auto copy_chunk_type = [&](const auto& chunk_signature) {
 		constexpr uint8_t 
-			PNG_CHUNK_FIELDS_COMBINED_LENGTH = 12, // Size_field + Name_field + CRC_field.
-			PNG_CHUNK_LENGTH_FIELD_SIZE = 4,
-			SEARCH_INCREMENT = 5;
+			PNG_CHUNK_FIELDS_COMBINED_LENGTH 	= 12, // Size_field + Name_field + CRC_field.
+			PNG_CHUNK_LENGTH_FIELD_SIZE 		= 4,
+			INCREMENT_NEXT_SEARCH_POS 		= 5;
 
         	uint32_t 
-			chunk_search_pos = 0,
-			chunk_length_pos = 0,
-			chunk_count = 0,
-			chunk_length = 0;
+			chunk_search_pos 	= 0,
+			chunk_length_pos 	= 0,
+			chunk_count 		= 0,
+			chunk_length 		= 0;
 			
 		bool isBigEndian = true;
 		
         	while (true) {
-            		chunk_search_pos = searchFunc(image_vec, chunk_search_pos, SEARCH_INCREMENT, chunk_signature);
+            		chunk_search_pos = searchFunc(image_vec, chunk_search_pos, INCREMENT_NEXT_SEARCH_POS, chunk_signature);
             		
 			if (chunk_signature != IDAT_SIG && chunk_search_pos > FIRST_IDAT_INDEX) {
 				if (chunk_signature == PLTE_SIG && !chunk_count) {
-					throw std::runtime_error("Image Error: Invalid or corrupt image file. PLTE chunk not found.");
+					throw std::runtime_error("Image Error: Invalid or corrupt image file. Expected PLTE chunk not found!");
 				} else {
 					break;
 				}
