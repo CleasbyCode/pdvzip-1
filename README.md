@@ -172,8 +172,10 @@ https://github.com/user-attachments/assets/9451ad50-4c7c-4fa3-a1be-3854189bde00
 
 ## PNG Image Requirements for Arbitrary Data Preservation
 
-***PNG*** file size (image + archive file) must not exceed the platform's size limits.  
-The site will either refuse to upload your image or it will convert your image to ***jpg***, such as ***X-Twitter***.
+***PNG*** file size (image + archive file) must not exceed the platform's size limit. 
+
+The site will either refuse to upload your image or it will convert your image to ***jpg***, such as ***X-Twitter***,
+and you will lose the embedded content.
 
 ***Dimensions:***
 
@@ -184,12 +186,12 @@ These dimension size limits are for compatibility reasons, allowing it to work w
 
 Image dimensions can be set between a minimum of **68 x 68** and a maximum of **900 x 900**.
 
-*Note: Images that are created & saved within your image editor as ***PNG-32/24*** that are either
-black & white/grayscale, images with 256 colors or less, will be converted by ***X-Twitter*** to
-***PNG-8*** and you will lose the embedded content. If you want to use a simple "single" color
-***PNG-32/24*** image, then fill an area with a gradient color instead of a single solid color. 
-***X-Twitter*** should then keep the image as ***PNG-32/24***. [***(Example).***](https://twitter.com/CleasbyCode/status/1694992647121965554)*
-    
+***Note:*** *A cover image that is detected as ***PNG-32/24 Truecolor (color type 6 or 2),*** 
+with less than 257 colors, 
+will be converted by ***pdvzip*** to a ***PNG-8 Indexed-color (color type 3)*** image. 
+This is done for compatiblity reasons as it should prevent platforms such as ***X-Twitter***
+from also converting your image, which would result in the lose of the embedded archive file.*
+
 ***PNG-8 (Indexed-color)***
 
 Image dimensions can be set between a minimum of **68 x 68** and a maximum of **4096 x 4096**.
