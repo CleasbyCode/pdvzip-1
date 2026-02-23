@@ -5,6 +5,8 @@ Share the image on ***X-Twitter*** and a few other compatible platforms, which r
 
 *Note: For compatibility reasons, please do not use encrypted / password protected ZIP files.*
 
+Any issues with configuring ***pdvzip*** with your file types, then please just ask: [***@cleasbycode***](https://x.com/CleasbyCode)
+
 Based on the similar idea by [***David Buchanan***](https://www.da.vidbuchanan.co.uk/), from his original ***Python*** program [***tweetable-polyglot-png***](https://github.com/DavidBuchanan314/tweetable-polyglot-png),  
 ***pdvzip*** uses different methods for [***storing***](https://github.com/CleasbyCode/pdvzip#png-image-requirements-for-arbitrary-data-preservation) and [***extracting***](https://github.com/CleasbyCode/pdvzip#extracting-your-embedded-files) embedded files within a ***PNG*** image.  
   
@@ -25,29 +27,30 @@ With ***pdvzip***, you can embed a ***ZIP/JAR*** file up to a maximum size of **
 * ***PNG-32/24*** (*Truecolor*) **68x68** Min. - **900x900** Max.
 * ***PNG-8*** (*Indexed-color*) **68x68** Min. - **4096x4096** Max.
 
-*Try the ***pdvzip*** Web App [***here***](https://cleasbycode.co.uk/pdvzip/index/) for a convenient alternative to downloading and compiling the CLI source code. Web file uploads are limited to 20MB.* 
+There is also a [***Web edition***](https://cleasbycode.co.uk/pdvzip/app/), which you can use immediately, as a convenient alternative to downloading and compiling the CLI source code. Web file uploads are limited to **20MB**. 
 
 ## Usage (Linux)
 
 ```console
-user1@mx:~/Downloads/pdvzip-main/src$ chmod +x compile_pdvzip.sh
-user1@mx:~/Downloads/pdvzip-main/src$ ./compile_pdvzip.sh
-user1@mx:~/Downloads/pdvzip-main/src$ Compiling pdvzip...
-user1@mx:~/Downloads/pdvzip-main/src$ Compilation successful. Executable 'pdvzip' created.
-user1@mx:~/Downloads/pdvzip-main/src$ sudo cp pdvzip /usr/bin
+$ chmod +x compile_pdvzip.sh
+$ ./compile_pdvzip.sh
 
-user1@mx:~/Desktop$ pdvzip
+Compiling pdvzip...
+Compilation successful. Executable 'pdvzip' created.
+
+$ sudo cp pdvzip /usr/bin
+$ pdvzip
 
 Usage: pdvzip <cover_image> <zip/jar>
        pdvzip --info
 
-user1@mx:~/Desktop$ pdvzip my_cover_image.png document_pdf.zip
+$ pdvzip my_cover_image.png document_pdf.zip
 
 Created PNG-ZIP polyglot image file: pzip_55183.png (4038367 bytes).
 
 Complete!
 
-user1@mx:~/Desktop$ pdvzip my_cover_image.png hello_world.jar
+$ pdvzip my_cover_image.png hello_world.jar
 
 Created PNG-JAR polyglot image file: pjar_19662.png (1016336 bytes).
 
@@ -68,7 +71,7 @@ https://github.com/user-attachments/assets/2c545745-279b-4e07-83aa-2ce5d0b78c90
 ***Linux - using bash (or sh) shell environment.***
 ```console
 
-user1@mx:~/Desktop$ ./pzip_55183.png
+$ ./pzip_55183.png
 
 ```
 **For any other Linux shell environment, you will probably need to invoke bash (or sh) to run the image file.**
@@ -81,7 +84,7 @@ Alternative extraction (***Linux***).  Using ***wget*** to download and run the 
 ***X-Twitter*** ***wget*** example: **Image with embedded ***python*** script**.
 ```console
 
-wget -O Fibo.png "https://pbs.twimg.com/media/GLXTYeCWMAAA6B_.png";chmod +x Fibo.png;bash ./Fibo.png
+$ wget -O Fibo.png "https://pbs.twimg.com/media/GLXTYeCWMAAA6B_.png";chmod +x Fibo.png;bash ./Fibo.png
 
 ```   
 
@@ -107,7 +110,7 @@ To avoid security warnings, run the file from a ***Windows console***, as shown 
 
 ***The file (or folder) within the ZIP archive that appears first within the ZIP file record, determines what extraction script, based on file type, is used.***
 
-For common ***video & audio*** files, ***Linux*** will use the ***vlc*** or ***mpv*** media player. ***Windows*** uses the default media player.  
+For common ***video & audio*** files, ***Linux*** will first attempt to use the media player ***mpv*** or ***vlc*** if no ***mpv***. ***Firefox*** is used as a last resort. ***Windows*** uses the default media player.  
 
 ***PDF*** - ***Linux*** will use ***evince*** or ***firefox***. ***Windows*** uses the default ***PDF*** viewer.  
 ***Python*** - ***Linux*** & ***Windows*** use ***python3*** to run these programs.  
@@ -122,7 +125,7 @@ The ***command-line arguments*** will be added to the ***Linux/Windows*** extrac
 
 Make sure to enclose arguments containing spaces, such as file & directory names, within "quotation" marks. e.g.
 ```console
-user1@mx:~/Desktop$ ./pdvzip my_cover_image.png jdvrif_linux_executable.zip
+$ ./pdvzip my_cover_image.png jdvrif_linux_executable.zip
 
 For this file type you can provide command-line arguments here, if required.
 
@@ -140,7 +143,7 @@ Treat the ***ZIP*** archive as read-only, do not add or remove files from the **
 
 ***Linux Option 1:***
 ```console
-user1@mx:~/Desktop$ java -jar pjar_19662.png
+$ java -jar pjar_19662.png
 Note: If you use this method to run your embedded Java program, you will have to manually add command-line
       arguments (if required) to the end of the command, as your embedded arguments will not work with
       this method. e.g.
@@ -148,7 +151,7 @@ Note: If you use this method to run your embedded Java program, you will have to
 ```
 ***Linux Option 2a, using bash (or sh) shell environment:***
 ```console
-user1@mx:~/Desktop$ ./pjar_19662.png
+$ ./pjar_19662.png
 Note: This method will execute the embedded Java program and also use any embedded
       command-line arguments with the Java program.
 ```
