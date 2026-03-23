@@ -3,9 +3,9 @@
 Embed a ***ZIP*** or ***JAR*** file within a ***PNG*** image to create a ***tweetable*** and "[***executable***](https://github.com/CleasbyCode/pdvzip#extracting-your-embedded-files)" ***PNG*** polyglot file.  
 Share the image on ***X-Twitter*** and a few other compatible platforms, which retains the embedded archive.  
 
-*Note: For compatibility reasons, please do not use encrypted / password protected ZIP files.*
+*Note: For compatibility reasons, please ***do not*** use encrypted / password protected ZIP files.*
 
-Any issues with configuring ***pdvzip*** with your file types, then please just ask: [***@cleasbycode***](https://x.com/CleasbyCode)
+There is also a [***Web edition***](https://cleasbycode.co.uk/pdvzip/app/), which you can use immediately, as a convenient alternative to downloading and compiling the CLI source code. Web file uploads are limited to **20MB**. 
 
 Based on the similar idea by [***David Buchanan***](https://www.da.vidbuchanan.co.uk/), from his original ***Python*** program [***tweetable-polyglot-png***](https://github.com/DavidBuchanan314/tweetable-polyglot-png),  
 ***pdvzip*** uses different methods for [***storing***](https://github.com/CleasbyCode/pdvzip#png-image-requirements-for-arbitrary-data-preservation) and [***extracting***](https://github.com/CleasbyCode/pdvzip#extracting-your-embedded-files) embedded files within a ***PNG*** image.  
@@ -26,8 +26,6 @@ With ***pdvzip***, you can embed a ***ZIP/JAR*** file up to a maximum size of **
 
 * ***PNG-32/24*** (*Truecolor*) **68x68** Min. - **900x900** Max.
 * ***PNG-8*** (*Indexed-color*) **68x68** Min. - **4096x4096** Max.
-
-There is also a [***Web edition***](https://cleasbycode.co.uk/pdvzip/app/), which you can use immediately, as a convenient alternative to downloading and compiling the CLI source code. Web file uploads are limited to **20MB**. 
 
 ## Usage (Linux)
 
