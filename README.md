@@ -7,6 +7,8 @@ Share the image on ***X-Twitter*** and a few other compatible platforms, which r
 
 There is also a [***Web edition***](https://cleasbycode.co.uk/pdvzip/app/), which you can use immediately, as a convenient alternative to downloading and compiling the CLI source code. Web file uploads are limited to **20MB**. 
 
+An experimental ***Rust*** port [***pdvzip-rs***](https://github.com/CleasbyCode/pdvzip-rs) is available for those interested in that language. 
+
 Based on the similar idea by [***David Buchanan***](https://www.da.vidbuchanan.co.uk/), from his original ***Python*** program [***tweetable-polyglot-png***](https://github.com/DavidBuchanan314/tweetable-polyglot-png),  
 ***pdvzip*** uses different methods for [***storing***](https://github.com/CleasbyCode/pdvzip#png-image-requirements-for-arbitrary-data-preservation) and [***extracting***](https://github.com/CleasbyCode/pdvzip#extracting-your-embedded-files) embedded files within a ***PNG*** image.  
   
@@ -134,7 +136,7 @@ For this file type you can provide command-line arguments here, if required.
 Linux: -e ../my_cover_image.jpg "../my document file.pdf"
 
 ```
-Also, be aware when using arguments for the compressed ***ZIP*** file types (not ***JAR***), that you are always working from within a created subdirectory "***pdvzip_xxxxx (e.g. pdvzip_56442)***".  
+Also, be aware when using arguments for the compressed ***ZIP*** file types (not ***JAR***), that you are always working from within a created subdirectory "***pdvzip_xxxxx (e.g. pdvzip_64214)***".  
 
 https://github.com/user-attachments/assets/e55e9671-423c-4439-89e6-356c0080b4c1
 
