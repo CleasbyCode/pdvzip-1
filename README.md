@@ -29,14 +29,12 @@ With ***pdvzip***, you can embed a ***ZIP/JAR*** file up to a maximum size of **
 * ***PNG-32/24*** (*Truecolor*) **68x68** Min. - **900x900** Max.
 * ***PNG-8*** (*Indexed-color*) **68x68** Min. - **4096x4096** Max.
 
-## Usage (Linux)
+## Compilation & Usage (Linux)
 
 ```console
+$ sudo apt install g++ cmake ninja-build util-linux zlib1g-dev
 $ chmod +x compile_pdvzip.sh
 $ ./compile_pdvzip.sh
-
-Compiling pdvzip...
-Compilation successful. Executable 'pdvzip' created.
 
 $ sudo cp pdvzip /usr/bin
 $ pdvzip
@@ -57,7 +55,7 @@ Created PNG-JAR polyglot image file: pjar_19662.png (1016336 bytes).
 Complete!
 
 ``` 
-## Extracting Your Embedded File(s)  
+## Extracting Embedded File(s)  
 **Important:** When saving images from ***X-Twitter***, click the image in the post to ***fully expand it***, before saving.  
 
 The following section covers the extraction of embedded ***ZIP*** files. ***JAR*** files are covered later.
