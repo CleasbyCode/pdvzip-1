@@ -12,8 +12,8 @@ An experimental ***Rust*** port [***pdvzip-rs***](https://github.com/CleasbyCode
 Based on the similar idea by [***David Buchanan***](https://www.da.vidbuchanan.co.uk/), from his original ***Python*** program [***tweetable-polyglot-png***](https://github.com/DavidBuchanan314/tweetable-polyglot-png),  
 ***pdvzip*** uses different methods for [***storing***](https://github.com/CleasbyCode/pdvzip#png-image-requirements-for-arbitrary-data-preservation) and [***extracting***](https://github.com/CleasbyCode/pdvzip#extracting-your-embedded-files) embedded files within a ***PNG*** image.  
   
-![Demo Image](https://github.com/CleasbyCode/pdvzip/blob/main/demo_image/HDO2mHoWYAAUxIy.png)  
-***Credits:*** *Image* - [***@KCP228***](https://x.com/KCP228) *PowerShell Script* - [***@gierrofo***](https://x.com/gierrofo)
+![Demo Image](https://github.com/CleasbyCode/pdvzip/blob/main/demo_image/demo_image.png)  
+***Credit:*** *PowerShell Script* - [***@gierrofo***](https://x.com/gierrofo)
 
 The ***Linux/Windows*** extraction script is stored within the ***iCCP*** chunk of the ***PNG*** image. The embedded ***ZIP/JAR*** file is stored within its own ***IDAT*** chunk, which will be the last ***IDAT*** chunk of the image file.  
 
@@ -66,11 +66,11 @@ The following section covers the extraction of embedded ***ZIP*** files. ***JAR*
 
 You will need to manually set executable permissions using ***chmod*** on these polyglot images downloaded from hosting sites or copied from another machine.
 
-https://github.com/user-attachments/assets/8feca575-b135-4f58-839a-2159fce09b44  
+https://github.com/user-attachments/assets/bfbe35eb-b51b-4aad-8411-ba010d91f302
 
 https://github.com/user-attachments/assets/77472a02-52dd-4a5c-a035-b30dcc842cce  
 
-https://github.com/user-attachments/assets/a143e694-31f5-4235-ace1-30217fe8ab41
+https://github.com/user-attachments/assets/b359301b-29e5-440d-8337-2d91fc04ff90
 
 ***Linux - using bash (or sh) shell environment.***
 ```console
